@@ -27,7 +27,6 @@ gem "jbuilder"
 
 gem "bulma-rails", "~> 0.8.0"
 
-gem 'sassc-rails'
 
 gem 'will_paginate'
 
