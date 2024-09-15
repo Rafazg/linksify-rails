@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: shopify_links_production
-  username: shopify_links
-  password: <%= ENV["SHOPIFY_LINKS_DATABASE_PASSWORD"] %>
+  database: linksify
+  username: linksify_user
+  password: <%= ENV["LINKSIFY_DATABASE_PASSWORD"] %>
