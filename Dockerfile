@@ -49,7 +49,7 @@ RUN chmod +x bin/* && \
 
 # Remove old assets and precompile assets for production
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:clobber
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile --trace
 
 # Final stage for app image
 FROM base
