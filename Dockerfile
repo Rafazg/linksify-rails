@@ -70,3 +70,8 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
 CMD ["./bin/rails", "server"]
+
+ENV DATABASE_HOST=dpg-crjir5lds78s73ebjcp0-a.ohio-postgres.render.com
+ENV DATABASE_USERNAME=linksify_user
+ENV DATABASE_PASSWORD=kyM1zkte7fD0b7SwgMtXVaSYO8xZXZ8Z
+ENV DATABASE_PORT=5432
