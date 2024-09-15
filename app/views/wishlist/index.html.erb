@@ -1,0 +1,39 @@
+<section class="section">
+    <div class="container">
+      <h1 class="title is-3 has-text-grey-dark">Minha Lista de Desejos</h1>
+  
+      <div class="columns is-multiline">
+        <% @wishlist_items.each do |item| %>
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <%= image_tag item.product.image_url, alt: item.product.title %>
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <h2 class="title is-4">
+                      <%= link_to item.product.title, product_path(item.product), class: 'has-text-dark' %>
+                    </h2>
+                  </div>
+                </div>
+  
+                <div class="content">
+                  <p><strong>Preço:</strong> <%= number_to_currency(item.product.price) %></p>
+                  <p class="has-text-grey-light">
+                    <small>Adicionado em: <%= item.created_at.strftime('%B %d, %Y') %></small>
+                  </p>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <%= button_to 'Remover', remove_from_wishlist_path(item), method: :delete, class: 'button is-danger card-footer-item' %>
+              </footer>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+  

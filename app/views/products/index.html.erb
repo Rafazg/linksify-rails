@@ -1,0 +1,74 @@
+<section class="section">
+  <div class="container">
+    <!-- Formulário de Filtro -->
+    <div class="box">
+      <%= form_with url: products_path, method: :get, local: true, class: 'filter-form' do %>
+        <div class="columns is-multiline is-vcentered">
+          <div class="column is-one-third">
+            <div class="field">
+              <label class="label">Preço Mínimo:</label>
+              <div class="control">
+                <%= text_field_tag :min_price, params[:min_price], class: 'input' %>
+              </div>
+            </div>
+          </div>
+          <div class="column is-one-third">
+            <div class="field">
+              <label class="label">Preço Máximo:</label>
+              <div class="control">
+                <%= text_field_tag :max_price, params[:max_price], class: 'input' %>
+              </div>
+            </div>
+          </div>
+          <div class="column is-one-third">
+            <div class="field">
+              <label class="label">Pesquisar:</label>
+              <div class="control">
+                <%= text_field_tag :search, params[:search], class: 'input' %>
+              </div>
+            </div>
+          </div>
+          <div class="column is-full">
+            <div class="control">
+              <%= submit_tag 'Filtrar', class: 'button is-primary is-fullwidth' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Grid de Produtos -->
+    <div class="columns is-multiline">
+      <% @products.each do |product| %>
+        <div class="column is-one-quarter">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <%= image_tag product.image_url, alt: product.title %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-4"><%= product.title %></p>
+                  <p class="subtitle is-6"><%= number_to_currency(product.price) %></p>
+                </div>
+              </div>
+
+              <div class="content">
+                <%= product.published_at.strftime('%B %d, %Y') %>
+                <br>
+                <%= button_to 'Adicionar à Lista de Desejos', add_to_wishlist_path(product_id: product.id), method: :post, class: 'button is-link is-small' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Paginação -->
+    <div class="pagination">
+      <%= will_paginate @products, class: 'pagination-list' %>
+    </div>
+  </div>
+</section>
