@@ -52,14 +52,14 @@ Os usuários podem adicionar produtos à lista de desejos clicando no botão "Ad
 - **app/views/:** Templates de visualização das páginas.
 - **app/assets/:** Arquivos CSS e JavaScript.
 
-<<<<<<< HEAD
+
 * Database initialization++
 =======
 ## Problemas Conhecidos
-- **Compatibilidade de CSS:** Algumas classes do Bulma podem não funcionar como esperado em navegadores mais antigos.
-## License
->>>>>>> 05e560b791516a16f8ef98e4ca9fd2e10cde7d2c
 
+- **Compatibilidade de CSS:** Algumas classes do Bulma podem não funcionar como esperado em navegadores mais antigos.
+  
+## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
 Copyright (c)
